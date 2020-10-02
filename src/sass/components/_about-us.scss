@@ -1,0 +1,71 @@
+.container.about-us {
+  @media screen and (min-width: $tablet) {
+    display: flex;
+  }
+}
+
+.about-image-list {
+  @media screen and (max-width: 767px) {
+    display: none;
+  }
+  @media screen and (min-width: $tablet) {
+    width: calc((100% - 30px) / 2);
+    margin-right: 30px;
+  }
+  @media screen and (min-width: $desktop) {
+    @include flex(left, flex-start);
+  }
+}
+
+.about-image-item {
+  @media screen and (min-width: $tablet) {
+    &:first-child {
+      margin-bottom: 30px;
+    }
+  }
+  @media screen and (min-width: $desktop) {
+    &:first-child {
+      margin-right: 30px;
+      margin-bottom: 0;
+    }
+  }
+}
+
+.about-content {
+  @media screen and (min-width: $tablet) {
+    width: calc((100% - 30px) / 2);
+  }
+  @media screen and (min-width: $desktop) {
+    padding: 0 34px;
+  }
+}
+
+.sub-title.about-us {
+  color: $primary-grey-color;
+}
+
+.sub-title.about-us::before {
+  background-color: $primary-grey-color;
+}
+
+.about-title {
+  display: inline-block;
+  margin-bottom: 20px;
+  @include font(700, 28px, 1.18, 0.05em, $heading-font);
+  color: $primary-grey-color;
+
+  @media screen and (min-width: $desktop) {
+    @include font(700, 42px, 1.17, 0.05em, $heading-font);
+  }
+}
+
+.slogan.about-us {
+  color: $tertiary-grey-color;
+  margin-bottom: 20px;
+}
+
+.about-description {
+  @include font(400, 14px, 1.86);
+  color: $tertiary-grey-color;
+  margin-bottom: 40px;
+}

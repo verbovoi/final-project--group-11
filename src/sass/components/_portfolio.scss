@@ -1,0 +1,50 @@
+.portfolio-title {
+  @extend %visually-hidden;
+}
+
+.sub-title.portfolio {
+  margin-bottom: 44px;
+  color: $primary-grey-color;
+
+  @media screen and (max-width: $tablet - 1) {
+    @include font(600, 11px, 1.91, 0.1em);
+  }
+}
+
+.sub-title.portfolio::before {
+  background-color: $primary-grey-color;
+
+  @media screen and (max-width: $tablet - 1) {
+    @include font(600, 11px, 1.91, 0.1em);
+  }
+}
+
+.portfolio-list {
+  @include flex();
+  flex-wrap: wrap;
+
+  @media screen and (min-width: $tablet) {
+    margin: -15px;
+  }
+}
+
+.portfolio-list-item {
+  @media screen and (max-width: $tablet - 1) {
+    width: 418px;
+  }
+
+  @media screen and (min-width: $tablet) {
+    width: calc((100% - 60px) / 2);
+    margin: 15px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    width: calc((100% - 120px) / 4);
+  }
+
+  &:not(:last-child) {
+    @media screen and (max-width: $tablet - 1) {
+      margin-bottom: 30px;
+    }
+  }
+}

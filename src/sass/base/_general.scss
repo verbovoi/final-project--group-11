@@ -1,0 +1,107 @@
+:root {
+  scroll-behavior: smooth;
+}
+
+body {
+  color: $primary-grey-color;
+  background-color: $bg-white-color;
+  font-family: $basic-font;
+  &.modal-open {
+    overflow: hidden;
+  }
+}
+
+ul,
+ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+  letter-spacing: inherit;
+  cursor: pointer;
+  padding: 0;
+  border: none;
+  outline-color: $accent-color;
+}
+
+.container {
+  position: relative;
+  margin-right: auto;
+  margin-left: auto;
+  max-width: $tablet - 1;
+  padding-left: $cont-pad-mob;
+  padding-right: $cont-pad-mob;
+
+  @media screen and (min-width: $tablet) and (max-width: $desktop - 1) {
+    max-width: $tablet;
+    padding-left: $cont-pad-tab;
+    padding-right: $cont-pad-tab;
+  }
+
+  @media screen and (min-width: $desktop) {
+    max-width: $desktop;
+    padding-left: $cont-pad-desk;
+    padding-right: $cont-pad-desk;
+  }
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+label {
+  margin-top: 0px;
+}
+
+.button-order {
+  display: inline-block;
+  padding: 11px;
+  min-width: 160px;
+  text-align: center;
+  text-transform: uppercase;
+
+  border: 1px solid $accent-color;
+  border-radius: 25px;
+  outline: none;
+
+  @include font(600, 12px, 1.33, 0.09em);
+
+  color: $primary-grey-color;
+  @include transition(color, background-color);
+
+  &:hover,
+  &:focus {
+    background-color: $accent-color;
+    color: $primary-white-color;
+  }
+}
+
+.section {
+  padding-top: $sec-pad-mob;
+  padding-bottom: $sec-pad-mob;
+
+  @media screen and (min-width: $tablet) {
+    padding-top: $sec-pad-tab;
+    padding-bottom: $sec-pad-tab;
+  }
+  @media screen and (min-width: $desktop) {
+    padding-top: $sec-pad-desk;
+    padding-bottom: $sec-pad-desk;
+  }
+}

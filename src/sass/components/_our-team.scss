@@ -1,0 +1,124 @@
+.team {
+  padding: $sec-pad-mob 0;
+  background-color: $bg-grey-color;
+
+  @media screen and (min-width: $tablet) {
+    padding: $sec-pad-tab 0;
+  }
+
+  @media screen and (min-width: $desktop) {
+    padding: $sec-pad-desk 0;
+  }
+}
+
+.tablet-container {
+  @media screen and (max-width: $desktop - 1) {
+    @include flex($cross: flex-start);
+    flex-direction: column;
+  }
+}
+
+.team-description {
+  padding-left: 80px;
+  margin-bottom: 20px;
+
+  @media screen and (min-width: $tablet) and (max-width: $desktop - 1) {
+    margin-left: 120px;
+  }
+
+  @include font(600, 11px, 1.36, 0.1em);
+  text-transform: uppercase;
+}
+
+.sub-title.team-description {
+  color: $primary-grey-color;
+}
+
+.sub-title.team-description::before {
+  background-color: $primary-grey-color;
+}
+
+.team-title {
+  margin-bottom: 44px;
+
+  @media screen and (min-width: $tablet) and (max-width: $desktop - 1) {
+    margin-left: 120px;
+  }
+
+  @include font(700, 42px, 1.17, 0.05em, $heading-font);
+}
+
+.people {
+  @include flex();
+  flex-wrap: wrap;
+
+  @media screen and (min-width: $desktop) {
+    margin: -15px;
+  }
+
+  & .item {
+    @include flex();
+    flex-direction: column;
+
+    @media screen and (max-width: $tablet - 1) {
+      max-width: 418px;
+    }
+
+    @media screen and (min-width: $tablet) {
+      width: 450px;
+    }
+
+    @media screen and (min-width: $desktop) {
+      width: calc((100% - 90px) / 3);
+      margin: 15px;
+    }
+
+    text-align: center;
+  }
+
+  & .item:not(:last-child) {
+    @media screen and (max-width: $desktop - 1) {
+      margin-bottom: 64px;
+    }
+  }
+
+  & .thumb {
+    margin-bottom: 30px;
+  }
+
+  & .name {
+    margin-bottom: 8px;
+    @include font(400, 18px, 1.39, 0.02em);
+  }
+
+  & .profession {
+    margin-bottom: 30px;
+    @include font(400, 14px, 1.36, 0.02em);
+    color: $accent-color;
+  }
+}
+
+.team-social {
+  @include flex(space-between);
+  width: 206px;
+
+  &-link {
+    @include flex();
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background-color: $bg-white-color;
+  }
+
+  & .social-icon {
+    width: 20px;
+    height: 20px;
+    fill: $primary-grey-color;
+    @include transition(fill);
+  }
+
+  &-link:hover .social-icon,
+  &-link:focus .social-icon {
+    fill: $accent-color;
+  }
+}

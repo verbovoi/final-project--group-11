@@ -1,0 +1,21 @@
+@font-face {
+  font-family: 'Raleway';
+  src: url('../fonts/ralewaybold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@import './utils/variables';
+@import './utils/breakpoints';
+@import './utils/placeholders';
+@import './utils/mixins';
+@import './base/normalize';
+@import './base/general';
+@import './components/header';
+@import './components/about-us';
+@import './components/features';
+@import './components/portfolio';
+@import './components/modal';
+@import './components/footer';
+@import './components/our-team';
+@import './components/prices';

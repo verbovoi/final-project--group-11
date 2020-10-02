@@ -1,0 +1,173 @@
+.section.prices {
+  margin: 0 auto;
+
+  //Фон для экранов до 480 рх
+
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-image: linear-gradient($gradient-price-main, $gradient-price-main),
+    url(../images/prices/prices.jpg);
+
+  @media screen and (min-device-pixel-ratio: 2),
+    screen and (min-resolution: 192dpi),
+    screen and (min-resolution: 2dppx) {
+    background-image: linear-gradient(
+        $gradient-price-main,
+        $gradient-price-main
+      ),
+      url(../images/prices/prices@2x.jpg);
+  }
+  @media screen and (min-device-pixel-ratio: 3),
+    screen and (min-resolution: 288dpi),
+    screen and (min-resolution: 3dppx) {
+    background-image: linear-gradient(
+        $gradient-price-main,
+        $gradient-price-main
+      ),
+      url(../images/prices/prices@3x.jpg);
+  }
+
+  @media screen and (min-width: $mobile + 1) {
+    background-image: linear-gradient(
+        $gradient-price-main,
+        $gradient-price-main
+      ),
+      url(../images/prices/prices-tablet.jpg);
+    @media screen and (min-device-pixel-ratio: 2),
+      screen and (min-resolution: 192dpi),
+      screen and (min-resolution: 2dppx) {
+      background-image: linear-gradient(
+          $gradient-price-main,
+          $gradient-price-main
+        ),
+        url(../images/prices/prices-tablet@2x.jpg);
+    }
+    @media screen and (min-device-pixel-ratio: 3),
+      screen and (min-resolution: 288dpi),
+      screen and (min-resolution: 3dppx) {
+      background-image: linear-gradient(
+          $gradient-price-main,
+          $gradient-price-main
+        ),
+        url(../images/prices/prices-tablet@3x.jpg);
+    }
+  }
+
+  @media screen and (min-width: $tablet + 1) {
+    max-width: $biggest-width;
+    background-image: linear-gradient(
+        $gradient-price-main,
+        $gradient-price-main
+      ),
+      url(../images/prices/prices-desktop.jpg);
+    @media screen and (min-device-pixel-ratio: 2),
+      screen and (min-resolution: 192dpi),
+      screen and (min-resolution: 2dppx) {
+      background-image: linear-gradient(
+          $gradient-price-main,
+          $gradient-price-main
+        ),
+        url(../images/prices/prices-desktop@2x.jpg);
+    }
+    @media screen and (min-device-pixel-ratio: 3),
+      screen and (min-resolution: 288dpi),
+      screen and (min-resolution: 3dppx) {
+      background-image: linear-gradient(
+          $gradient-price-main,
+          $gradient-price-main
+        ),
+        url(../images/prices/prices-desktop@3x.jpg);
+    }
+  }
+}
+
+.container.prices {
+  text-align: center;
+}
+
+.sub-title.prices {
+  text-align: left;
+}
+
+.prices-title {
+  @include font(700, 42px, 1.17, 0.05em, $heading-font);
+  margin-bottom: 44px;
+  text-align: left;
+  color: $primary-white-color;
+}
+
+.prices-box {
+  margin-bottom: 50px;
+
+  @media screen and (max-width: $tablet - 1) {
+    padding: 30px;
+  }
+
+  @media screen and (min-width: $tablet) and (max-width: $desktop - 1) {
+    padding: 30px 40px;
+  }
+
+  @media screen and (max-width: $desktop - 1) {
+    background: $gradient-price-light;
+  }
+
+  @media screen and (min-width: $desktop) {
+    @include flex(left, flex-start);
+  }
+}
+
+.price-list {
+  @media screen and (min-width: $desktop) {
+    width: 50%;
+    padding: 30px 40px;
+  }
+
+  &.left {
+    @media screen and (max-width: $desktop - 1) {
+      margin-bottom: 20px;
+    }
+
+    @media screen and (min-width: $desktop) {
+      background: $gradient-price-light;
+    }
+  }
+
+  &.right {
+    @media screen and (min-width: $desktop) {
+      background: $gradient-price-dark;
+    }
+  }
+}
+
+.price-item {
+  @include flex(left, baseline);
+
+  &:not(:last-child) {
+    margin-bottom: 20px;
+  }
+
+  @include font($size: 14px, $height: 2.14);
+  color: $secondary-grey-color;
+
+  @media screen and (min-width: $tablet) {
+    @include font($size: 18px, $height: 1.67);
+  }
+}
+
+.price-item-title {
+  text-align: left;
+}
+
+.underline {
+  height: 1px;
+  flex-grow: 1;
+  margin: 0 6px;
+
+  background-color: $underline-color;
+}
+
+.prices-order-link {
+  @extend .button-order;
+  color: $primary-white-color;
+}

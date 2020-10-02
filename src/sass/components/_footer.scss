@@ -1,0 +1,430 @@
+.top-block {
+  @media screen and (min-width: $desktop) {
+    display: flex;
+    max-width: $biggest-width;
+    margin: 0 auto;
+  }
+}
+
+.first-container {
+  background-color: $bg-dark-color;
+
+  @media screen and (min-width: $desktop) {
+    padding-right: 40px;
+    width: 50%;
+  }
+}
+
+.form-title {
+  @include font(600, 42px, 1.17, 0.05em, $heading-font);
+  margin-top: 0;
+  margin-bottom: 44px;
+  color: $primary-white-color;
+
+  @media screen and (min-width: $tablet) {
+    text-align: left;
+  }
+}
+
+.form-flex {
+  position: relative;
+  @media screen and (min-width: $tablet) {
+    display: flex;
+    margin: -15px -15px 44px -15px;
+  }
+}
+
+.form-field {
+  position: relative;
+  display: block;
+  margin-bottom: 44px;
+
+  @media screen and (min-width: $tablet) {
+    width: calc((100% - 2 * 30px) / 2);
+    margin: 15px 15px 0px 15px;
+  }
+}
+
+.form-input {
+  display: block;
+  width: 100%;
+  padding: 0px 10px 8px;
+
+  @include font(600, 11px, 1.36, 0.1em);
+  color: $primary-white-color;
+  background: transparent;
+
+  border: none;
+  border-bottom: 1px solid $form-text-color;
+
+  @include transition(border-color);
+
+  &:hover,
+  &:focus {
+    border-color: $primary-white-color;
+  }
+  &:valid {
+    border-color: green;
+    outline-color: green;
+  }
+
+  &:invalid:not(:focus):not(:placeholder-shown) {
+    background: red;
+  }
+}
+
+.form-label {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  @include font(600, 11px, 1.36, 0.1em);
+  color: $form-text-color;
+
+  @include transition(color, transform, font);
+
+  .form-input:hover + & {
+    color: $primary-white-color;
+  }
+
+  .form-input:focus + &,
+  .form-input:not(:placeholder-shown) + & {
+    color: $accent-color;
+    transform: translateY(-14px);
+    @include font(400, 10px, 1.1, 0.1em);
+  }
+}
+
+.message-field {
+  position: relative;
+  display: block;
+  margin-bottom: 44px;
+}
+
+.message-input {
+  width: 100%;
+  padding: 8px 10px;
+  display: block;
+
+  @include font(600, 11px, 1.36, 0.1em);
+  color: $primary-white-color;
+
+  background: transparent;
+
+  border: none;
+  border-bottom: 1px solid $form-text-color;
+
+  resize: none;
+
+  @include transition(border-color);
+
+  &:hover,
+  &:focus {
+    border-color: $primary-white-color;
+  }
+}
+
+.message-label {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  @include font(600, 11px, 1.36, 0.1em);
+  color: $form-text-color;
+
+  @include transition(color, transform, font);
+
+  .message-input:hover + & {
+    color: $primary-white-color;
+  }
+
+  .message-input:focus + &,
+  .message-input:not(:placeholder-shown) + & {
+    color: $accent-color;
+    transform: translateY(-12px);
+    @include font(400, 10px, 1.1, 0.1em);
+  }
+}
+
+.button-send {
+  @extend .button-order;
+  background: transparent;
+  color: $primary-white-color;
+
+  @media screen and (max-width: $tablet - 1) {
+    display: block;
+    margin: 0 auto;
+  }
+}
+
+.second-container {
+  @media screen and (min-width: $tablet) and (max-width: $desktop - 1) {
+    @include flex(flex-start);
+  }
+
+  @media screen and (min-width: $desktop) {
+    padding-left: 100px;
+    padding-right: 100px;
+    width: 50%;
+  }
+
+  //фон для экранов до 480
+  background-image: linear-gradient(
+      $gradient-footer-color,
+      $gradient-footer-color
+    ),
+    url('../images/footer/footer-bgi480px.jpg');
+
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: bottom;
+
+  @media screen and (min-device-pixel-ratio: 2),
+    screen and (min-resolution: 192dpi),
+    screen and (min-resolution: 2dppx) {
+    background-image: linear-gradient(
+        $gradient-footer-color,
+        $gradient-footer-color
+      ),
+      url('../images/footer/footer-bgi480px@2x.jpg');
+  }
+
+  @media screen and (min-device-pixel-ratio: 3),
+    screen and (min-resolution: 288dpi),
+    screen and (min-resolution: 3dppx) {
+    background-image: linear-gradient(
+        $gradient-footer-color,
+        $gradient-footer-color
+      ),
+      url('../images/footer/footer-bgi480px@3x.jpg');
+  }
+
+  //фон от 768px
+  @media screen and (min-width: $tablet) {
+    background-image: linear-gradient(
+        $gradient-footer-color,
+        $gradient-footer-color
+      ),
+      url('../images/footer/footer-bgi768px.jpg');
+
+    @media screen and (min-device-pixel-ratio: 2),
+      screen and (min-resolution: 192dpi),
+      screen and (min-resolution: 2dppx) {
+      background-image: linear-gradient(
+          $gradient-footer-color,
+          $gradient-footer-color
+        ),
+        url('../images/footer/footer-bgi768px@2x.jpg');
+    }
+
+    @media screen and (min-device-pixel-ratio: 3),
+      screen and (min-resolution: 288dpi),
+      screen and (min-resolution: 3dppx) {
+      background-image: linear-gradient(
+          $gradient-footer-color,
+          $gradient-footer-color
+        ),
+        url('../images/footer/footer-bgi768px@3x.jpg');
+    }
+  }
+
+  //фон от 1280px
+  @media screen and (min-width: $desktop) {
+    background-image: linear-gradient(
+        $gradient-footer-color,
+        $gradient-footer-color
+      ),
+      url('../images/footer/footer-bgi1280px.jpg');
+
+    @media screen and (min-device-pixel-ratio: 2),
+      screen and (min-resolution: 192dpi),
+      screen and (min-resolution: 2dppx) {
+      background-image: linear-gradient(
+          $gradient-footer-color,
+          $gradient-footer-color
+        ),
+        url('../images/footer/footer-bgi1280px@2x.jpg');
+    }
+
+    @media screen and (min-device-pixel-ratio: 3),
+      screen and (min-resolution: 288dpi),
+      screen and (min-resolution: 3dppx) {
+      background-image: linear-gradient(
+          $gradient-footer-color,
+          $gradient-footer-color
+        ),
+        url('../images/footer/footer-bgi1280px@3x.jpg');
+    }
+  }
+}
+
+.address-container {
+  @media screen and (min-width: $tablet) and (max-width: $desktop - 1) {
+    width: calc((100% - 30px) / 2);
+
+    &:not(:last-child) {
+      margin-right: 30px;
+    }
+  }
+}
+
+.contacts-title {
+  @extend .form-title;
+  margin-bottom: 40px;
+  text-align: center;
+
+  @media screen and (min-width: $tablet) {
+    text-align: left;
+  }
+}
+
+.line-brake {
+  display: none;
+  @media screen and (min-width: $tablet) {
+    display: block;
+  }
+}
+
+.address-list {
+  @media screen and (max-width: $tablet - 1) {
+    margin-bottom: 44px;
+  }
+  @media screen and (min-width: $desktop) {
+    margin-bottom: 70px;
+  }
+}
+
+.address-item:not(:last-child) {
+  margin-bottom: 20px;
+}
+
+.contacts-link {
+  position: relative;
+  @include flex(flex-start);
+  @include font();
+
+  font-style: normal;
+  color: $secondary-grey-color;
+
+  @include transition(color, stroke);
+
+  &:hover {
+    color: $accent-color;
+    stroke: $accent-color;
+  }
+}
+
+.mail {
+  @extend .contacts-link;
+  text-decoration: underline;
+}
+
+.icon-form {
+  margin-right: 16px;
+  width: 24px;
+  height: 24px;
+  fill: none;
+  stroke: currentColor;
+
+  &.address {
+    @media screen and (min-width: $tablet) {
+      top: 25%;
+      transform: translateY(-50%);
+    }
+  }
+}
+
+.schedule-text {
+  position: relative;
+  padding-left: 80px;
+  margin-bottom: 20px;
+  @include font(600, 11px, 1.37, 0.1em);
+  text-transform: uppercase;
+
+  color: $primary-white-color;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0.5em;
+    left: 0%;
+    width: 60px;
+    height: 1px;
+
+    background-color: $secondary-hero-text-color;
+  }
+}
+
+.schedule-time {
+  @include font();
+
+  margin-top: 0;
+  margin-bottom: 0;
+  font-style: normal;
+  color: $secondary-grey-color;
+}
+
+.copyright-container {
+  padding-top: 44px;
+  padding-bottom: 44px;
+  background-color: $bg-white-color;
+
+  @media screen and (max-width: $tablet - 1) {
+    text-align: right;
+  }
+
+  @media screen and (min-width: $tablet) {
+    @include flex(space-between);
+    flex-direction: row-reverse;
+
+    padding-top: 56px;
+    padding-bottom: 56px;
+  }
+}
+
+.social-list {
+  position: relative;
+  display: inline-flex;
+  padding-left: 100px;
+  margin-bottom: 20px;
+
+  @media screen and (min-width: $tablet) {
+    margin-bottom: 0px;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0.5em;
+    left: 0%;
+    width: 60px;
+    height: 1px;
+
+    background-color: $primary-grey-color;
+  }
+}
+
+.social-item:not(:last-child) {
+  margin-right: 40px;
+}
+
+.social-link {
+  display: block;
+  @include font(600, 11px, 1.36, 0.2em, $basic-font);
+  color: $primary-grey-color;
+  @include transition(color);
+
+  &:hover,
+  &:focus {
+    color: $accent-color;
+  }
+}
+
+.copyright-text {
+  @include font(600, 11px, 1.36, 0.2em, $basic-font);
+  margin-top: 0px;
+  margin-bottom: 0px;
+  text-align: left;
+
+  color: $secondary-grey-color;
+}

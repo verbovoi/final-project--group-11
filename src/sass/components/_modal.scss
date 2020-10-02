@@ -1,0 +1,336 @@
+.backdrop {
+  position: fixed;
+  @include all-space-tl();
+  padding-top: 20px;
+
+  background-color: $bg-modal-overlay-color;
+  z-index: 99;
+  overflow-y: scroll;
+
+  opacity: 1;
+  @include transition(opacity);
+
+  &.is-hidden {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  &-area {
+    position: absolute;
+    @include all-space-tl();
+  }
+}
+
+// Модальное окно
+.modal {
+  position: relative;
+  padding: 40px;
+  margin: 0 auto;
+  max-width: 450px;
+
+  @media screen and (min-height: 980px) {
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  @media screen and (min-width: $tablet) {
+    max-width: 528px;
+    padding: 55px;
+  }
+
+  color: $primary-grey-color;
+  background-color: $bg-white-color;
+
+  box-shadow: $modal-shadow;
+  border-radius: 4px;
+
+  transform: perspective(600px) rotateX(0) scale(1);
+  @include transition(transform);
+
+  .backdrop.is-hidden & {
+    transform: perspective(600px) rotateX(90deg) scale(0.5);
+  }
+
+  &-title {
+    display: block;
+    margin-bottom: 30px;
+    @include font(700, 24px, 1.13, $family: $heading-font);
+    text-align: center;
+  }
+}
+
+// Имя, телефон, почта
+.modal-form {
+  @include flex();
+  flex-direction: column;
+  color: $primary-grey-color;
+  text-transform: uppercase;
+
+  &-field {
+    position: relative;
+    @extend %modal-field-width;
+    @include font(400, 14px, 1.14, 0.01em);
+  }
+
+  &-input {
+    @extend %modal-input-style;
+  }
+
+  &-input:focus {
+    border-color: $accent-color;
+    outline-color: $accent-color;
+  }
+
+  &-input:valid {
+    border-color: green;
+    outline-color: green;
+  }
+
+  &-input:invalid:not(:focus):not(:placeholder-shown) {
+    background: pink;
+  }
+
+  &-label {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    color: $primary-grey-color;
+    transform: translateY(-50%);
+    @include transition(transform, color, font);
+  }
+
+  &-field:focus-within > &-label {
+    color: $accent-color;
+    transform: translateY(calc(-50% - 32px));
+    @include font(400, 10px, 1.1, 0.01em);
+  }
+
+  &-input:not(:placeholder-shown) + &-label {
+    transform: translateY(calc(-50% - 32px));
+    @include font(400, 10px, 1.1, 0.01em);
+  }
+}
+
+// Дата и время
+.datetime-field {
+  @extend %modal-field-width;
+  @include font(400, 14px, 1.14, 0.01em);
+}
+
+.datetime-input {
+  @extend %modal-input-style;
+
+  &:focus {
+    border-color: $accent-color;
+    outline-color: $accent-color;
+  }
+}
+
+.datetime-label {
+  display: inline-block;
+  padding: 5px 0;
+  color: $primary-grey-color;
+  @include transition(color);
+
+  .datetime-field:focus-within > &,
+  .datetime-input:not(:placeholder-shown) + & {
+    color: $accent-color;
+  }
+}
+
+// Выбор мастера
+.barber-field {
+  @extend %modal-field-width;
+
+  @include font(400, 14px, 1.14, 0.01em);
+
+  border-bottom: 1px solid $primary-grey-color;
+}
+
+.barber-label {
+  display: inline-block;
+  padding: 5px 0;
+  color: $primary-grey-color;
+  @include transition(color);
+
+  .barber-field:focus-within > &,
+  .barber-input:not(:placeholder-shown) + & {
+    color: $accent-color;
+  }
+}
+
+.barbers {
+  @include flex(space-between, stretch);
+  padding: 12px 10px;
+}
+
+.barber-choice {
+  @include flex(flex-end, stretch);
+  font-weight: 700;
+
+  &:last-child {
+    font-weight: 400;
+    text-transform: none;
+  }
+}
+
+.barber-name {
+  margin-right: 10px;
+}
+
+// Выбор услуги
+.services-field {
+  @include flex(flex-start, stretch);
+  padding-top: 0;
+  padding-left: 0;
+  padding-right: 10px;
+  padding-bottom: 12px;
+  @extend %modal-field-width;
+
+  @include font(400, 14px, 1.14, 0.01em);
+
+  border-bottom: 1px solid $primary-grey-color;
+}
+
+.services-label {
+  display: inline-block;
+  padding-top: 5px;
+  padding-left: 0;
+  padding-bottom: 5px;
+  margin-right: 20px;
+
+  color: $primary-grey-color;
+  @include transition(color);
+
+  .services-field:focus-within > & {
+    color: $accent-color;
+  }
+}
+
+.services-choice {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid $primary-grey-color;
+
+  .services-field:focus-within > & {
+    outline-color: $accent-color;
+  }
+}
+
+// Сообщение
+.modal-message-field {
+  @extend %modal-field-width;
+  @include font(400, 14px, 1.14, 0.01em);
+}
+
+.modal-message-input {
+  @extend %modal-input-style;
+  resize: none;
+
+  &:focus {
+    border-color: $accent-color;
+    outline-color: $accent-color;
+  }
+}
+
+.modal-message-label {
+  display: inline-block;
+  padding-top: 5px;
+  padding-left: 0;
+  padding-bottom: 5px;
+
+  color: $primary-grey-color;
+  @include transition(color);
+
+  .modal-message-field:focus-within > &,
+  .modal-message-input:not(:placeholder-shown) + & {
+    color: $accent-color;
+  }
+}
+
+// Политика конфиденциальности
+.policy {
+  width: 100%;
+  margin-bottom: 30px;
+  text-transform: none;
+}
+
+.personal-data {
+  position: relative;
+  @include flex(left);
+  margin-bottom: 10px;
+
+  @include font(400, 12px, 1.16, 0.03em);
+
+  @media screen and (min-width: $tablet) {
+    @include font(400, 14px, 1.71, 0.03em);
+  }
+}
+
+.confidentiality {
+  position: relative;
+  @include flex(left);
+
+  @include font(400, 12px, 1.16, 0.03em);
+
+  @media screen and (min-width: $tablet) {
+    @include font(400, 14px, 1.71, 0.03em);
+  }
+
+  .agreement {
+    color: $accent-color;
+  }
+}
+
+.checkbox {
+  @extend %visually-hidden;
+}
+
+.icon-modal-checkbox {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  margin-right: 9px;
+  border: 2px solid $primary-grey-color;
+  border-radius: 2px;
+  @include transition(border-color, background-image, background-color);
+
+  .checkbox:checked + & {
+    border-color: $accent-color;
+    background-image: url(../images/modal/checkbox.svg);
+    background-color: $accent-color;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-origin: border-box;
+  }
+}
+
+// Кнопка закрытия модалки
+.button-close {
+  position: absolute;
+  @include flex();
+  top: 8px;
+  right: 8px;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  background-color: $bg-white-color;
+  border-radius: 50%;
+  border: 1px solid $accent-color;
+  outline-color: $accent-color;
+}
+
+.icon-modal-close {
+  fill: $primary-grey-color;
+  @include transition(fill);
+
+  .button-close:hover & {
+    fill: $accent-color;
+  }
+}
+
+.button-submit {
+  @extend .button-order;
+  margin: 0 auto;
+  background-color: $bg-white-color;
+}

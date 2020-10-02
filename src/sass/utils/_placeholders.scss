@@ -1,0 +1,30 @@
+%visually-hidden {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  clip: rect(0 0 0 0);
+  border: none;
+  overflow: hidden;
+}
+
+// Модальное окно
+%modal-input-style {
+  width: 100%;
+  padding: 12px 10px;
+  border: none;
+  border-bottom: 1px solid $primary-grey-color;
+  border-radius: 0;
+  transition: border-color 250ms $timing-function;
+}
+%modal-field-width {
+  width: 360px;
+  @media screen and (min-width: $tablet) {
+    width: 400px;
+  }
+  margin-bottom: 25px;
+}
